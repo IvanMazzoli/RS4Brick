@@ -58,14 +58,14 @@ void rs485Send(const String &message)
 
   // Enable RS485 transmission
   digitalWrite(RS485_CONTROL_PIN, HIGH);
-  delay(2);
+  delayMicroseconds(50);
 
   // Transmit all the data tho the bus
   rs485.println(message);
   rs485.flush();
 
   // Go back to listening
-  delay(2);
+  delay(1);
   digitalWrite(RS485_CONTROL_PIN, LOW);
 
   Serial.println("[MASTER] RS485 message sent");
